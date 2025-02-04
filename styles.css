@@ -1,0 +1,91 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.elementor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.e-con {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.elementor-widget {
+    margin-bottom: 20px;
+}
+
+.elementor-heading-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.ctc-block-copy {
+    display: flex;
+    align-items: center;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ctc-block-copy .copy-icon {
+    margin-right: 10px;
+}
+
+.elementor-countdown-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.elementor-countdown-item {
+    text-align: center;
+}
+
+.elementor-countdown-digits {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.elementor-countdown-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.elementor-social-icons-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.elementor-social-icon {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.elementor-social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}

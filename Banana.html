@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown</title>
+  <style>
+    :root {
+      --primary: #ffd700;
+      --secondary: #ff69b4;
+      --accent: #00ff00;
+      --dark: #1a1a1a;
+      --light: #ffffff;
+    }
+  
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      color: var(--light);
+      background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                  url('bananabackground.png') center/cover no-repeat fixed;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .main-content {
+      padding: 2rem;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+  
+    .logo {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 2rem 0;
+      filter: drop-shadow(0 0 10px var(--primary));
+    }
+  
+    h2 {
+      color: var(--primary);
+      margin: 1.5rem 0;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      font-size: 2.5rem;
+    }
+    
+    .elementor-countdown-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+  
+    .elementor-countdown-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1.5rem;
+      border-radius: 15px;
+      min-width: 120px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+  
+    .elementor-countdown-digits {
+      font-size: 3rem;
+      color: var(--accent);
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+  
+    .elementor-countdown-label {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  
+    .copy-address-container {
+      margin-top: 2rem;
+    }
+  
+    .copy-address-btn {
+      background: var(--secondary);
+      color: var(--light);
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  
+    .copy-address-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px var(--secondary);
+    }
+    
+    /* SOL Donation Section */
+    .sol-info {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px var(--primary);
+      line-height: 1.5;
+    }
+    .sol-info p {
+      margin: 0.5rem 0;
+    }
+    .sol-address {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    /* Sponsors Section */
+    .sponsors-container {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .sponsors-container h3 {
+      width: 100%;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .sponsor-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sponsor-logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--primary);
+    }
+    
+    /* Social icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  
+    .social-icon {
+      color: var(--light);
+      transition: transform 0.3s, filter 0.3s;
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
+  
+    .social-icon:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px var(--secondary));
+    }
+  
+    .social-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <img src="banana.png" alt="BunkySol" class="logo">
+    
+    <h2>COUNTDOWN TO LISTING EXCHANGES</h2>
+
+    <div class="elementor-countdown-wrapper">
+      <div class="elementor-countdown-item">
+        <span class="elementor-countdown-digits" id="days">00</span>
+        <span class="elementor-countdown-label">Days</span>
+      </div>
+      <div class="elementor-countdown-item">
+        <span class="elementor-countdown-digits" id="hours">00</span>
+        <span class="elementor-countdown-label">Hours</span>
+      </div>
+      <div class="elementor-countdown-item">
+        <span class="elementor-countdown-digits" id="minutes">00</span>
+        <span class="elementor-countdown-label">Minutes</span>
+      </div>
+      <div class="elementor-countdown-item">
+        <span class="elementor-countdown-digits" id="seconds">00</span>
+        <span class="elementor-countdown-label">Seconds</span>
+      </div>
+    </div>
+
+    <!-- Copy Address Button -->
+    <div class="copy-address-container">
+      <button id="copyButton" class="copy-address-btn" onclick="copyAddress()">Copy Address</button>
+    </div>
+
+    <!-- SOL Donation Section -->
+    <div class="sol-info">
+      <p>Send <strong>$SOL</strong> to: <span class="sol-address">5Krv9wJT4fjmrGLaqZzFTMPZPqJHd4QVqbiBN2rRA6VV</span></p>
+      <p>✅ Min: 0.5 $SOL | Max: 20 $SOL</p>
+      <p>✅ Min: 0.5 = 5 000 000 $Bananas🚀</p>
+      <p>💎 1 $SOL = 10 000 000 $Bananas🚀</p>
+    </div>
+
+    <!-- Sponsors Section -->
+    <div class="sponsors-container">
+      <h3>Cryptocurrency Listings</h3>
+      <a href="https://coinmarketcap.com" target="_blank">
+        <img class="sponsor-logo" src="coinmarketcap.png" alt="CoinMarketCap">
+      </a>
+      <a href="https://www.coingecko.com" target="_blank">
+        <img class="sponsor-logo" src="coingecko.png" alt="CoinGecko">
+      </a>
+      <a href="https://coinpaprika.com" target="_blank">
+        <img class="sponsor-logo" src="coinpaprika.png" alt="CoinPaprika">
+      </a>
+      <a href="https://livecoinwatch.com" target="_blank">
+        <img class="sponsor-logo" src="livecoinwatch.png" alt="LiveCoinWatch">
+      </a>
+      <a href="https://www.cryptocompare.com" target="_blank">
+        <img class="sponsor-logo" src="cryptocompare.png" alt="CryptoCompare">
+      </a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://x.com/BananaOhno" target="_blank" class="social-icon">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+        </svg>
+      </a>
+      <a href="https://t.me/bananabyte" target="_blank" class="social-icon">
+        <svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function startCountdown() {
+      const now = new Date();
+      let targetDate = new Date(now.getFullYear(), 1, 13, 0, 0, 0); // February 13
+
+      // If today's date is past February 13, set the target to next year
+      if (now > targetDate) {
+        targetDate = new Date(now.getFullYear() + 1, 1, 13, 0, 0, 0);
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        const timeLeft = targetDate - now;
+
+        // If timeLeft is less than or equal to zero, reset the countdown for next year
+        if (timeLeft <= 0) {
+          targetDate = new Date(now.getFullYear() + 1, 1, 13, 0, 0, 0);
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    function copyAddress() {
+      const address = "5Krv9wJT4fjmrGLaqZzFTMPZPqJHd4QVqbiBN2rRA6VV";
+      navigator.clipboard.writeText(address)
+        .then(() => {
+          const copyBtn = document.getElementById('copyButton');
+          copyBtn.innerText = "Copied!";
+          setTimeout(() => copyBtn.innerText = "Copy Address", 2000);
+        })
+        .catch(() => alert("Failed to copy address"));
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      startCountdown();
+    });
+  </script>
+</body>
+</html>
